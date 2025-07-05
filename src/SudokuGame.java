@@ -1,10 +1,10 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class SudokuGame extends JFrame {
-    private SudokuBoard board;
+    private final SudokuBoard board;
     private JButton[][] gridButtons;
     private int selectedRow = -1;
     private int selectedCol = -1;
@@ -127,12 +127,12 @@ public class SudokuGame extends JFrame {
             String command = ((JButton) e.getSource()).getText().toLowerCase();
 
             switch (command) {
-                case "novo jogo":
+                case "novo jogo" -> {
                     board.newGame();
                     updateBoard();
                     updateStatus("Novo jogo iniciado.");
-                    break;
-                case "número a inserir":
+                }
+                case "número a inserir" -> {
                     if (selectedRow != -1 && selectedCol != -1) {
                         String input = JOptionPane.showInputDialog("Escolha um número (1-9):");
                         try {
@@ -142,28 +142,24 @@ public class SudokuGame extends JFrame {
                             updateStatus("Entrada inválida.");
                         }
                     }
-                    break;
-                case "remover":
+                }
+                case "remover" -> {
                     if (selectedRow != -1 && selectedCol != -1) {
                         removeNumber(selectedRow, selectedCol);
                     }
-                    break;
-                case "verificar quadro":
+                }
+                case "verificar quadro" -> {
                     boolean valid = board.checkBoard();
                     updateStatus(valid ? "Tabuleiro válido." : "Conflitos encontrados.");
                     highlightConflicts();
-                    break;
-                case "status do jogo":
-                    showGameStatus();
-                    break;
-                case "limpar jogo":
+                }
+                case "status do jogo" -> showGameStatus();
+                case "limpar jogo" -> {
                     board.clearUserNumbers();
                     updateBoard();
                     updateStatus("Jogo limpo.");
-                    break;
-                case "finalizar":
-                    finishGame();
-                    break;
+                }
+                case "finalizar" -> finishGame();
             }
         }
     }
