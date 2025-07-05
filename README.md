@@ -1,4 +1,4 @@
-###🧩 Sudoku — Jogo em Java com Interface Gráfica (Swing)
+### 🧩 Sudoku — Jogo em Java com Interface Gráfica (Swing)
 Este projeto consiste na implementação de um jogo de Sudoku utilizando a linguagem Java e a biblioteca de interfaces gráficas Swing. O objetivo é proporcionar uma experiência interativa ao usuário, com funcionalidades completas para jogar e gerenciar uma partida de Sudoku.
 
 🛠 Tecnologias Utilizadas
